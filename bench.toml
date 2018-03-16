@@ -1,0 +1,13 @@
+[redis]
+clusters = "172.18.0.2:7001,172.18.0.3:7002,172.18.0.4:7003,172.18.0.5:7004,172.18.0.6:7005,172.18.0.7:7006"
+
+[bench]
+requests = 10000000  # number of requests for each commands
+keyspace = 10000   # max number of key for `__rand_int__`
+tests    = "set __rand_int__ __rand_int__"
+after    = "set result/last __result__"
+qps      = 500000
+
+[report]
+interval_sec = 1
+verbose = true
